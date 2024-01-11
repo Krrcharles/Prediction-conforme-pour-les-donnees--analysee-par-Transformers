@@ -1,2 +1,2 @@
-# Pr-diction-conforme-pour-les-donn-es-textuelles-analys-e-par-Transformers
+# Prediction-conforme-pour-les-donnees-textuelles-analysee-par-Transformers
 Projet Statistique 2A

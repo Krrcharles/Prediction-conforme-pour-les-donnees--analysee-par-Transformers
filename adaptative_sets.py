@@ -20,11 +20,15 @@ cal_smx, val_smx = smx[idx, :], smx[~idx, :]
 cal_labels, val_labels = labels[idx], labels[~idx]
 
 # Get scores. calib_X.shape[0] == calib_Y.shape[0] == n
-cal_pi = cal_smx.argsort(1)[:, ::-1]
-cal_srt = np.take_along_axis(cal_smx, cal_pi, axis=1).cumsum(axis=1)
+cal_pi = cal_smx.argsort(1)[:, ::-1] # indices des scores triés de manière décroissante pour chaque ligne.
+cal_srt = np.take_along_axis(cal_smx, cal_pi, axis=1).cumsum(axis=1) # score cumulée du tri précédent pour chaque ligne 
 cal_scores = np.take_along_axis(cal_srt, cal_pi.argsort(axis=1), axis=1)[
     range(n), cal_labels
 ]
+print(cal_pi )
+print(cal_pi.argsort(axis=1))
+print(np.take_along_axis(cal_srt, cal_pi.argsort(axis=1), axis=1))
+print(cal_scores)
 # Get the score quantile
 qhat = np.quantile(
     cal_scores, np.ceil((n + 1) * (1 - alpha)) / n, interpolation="higher"

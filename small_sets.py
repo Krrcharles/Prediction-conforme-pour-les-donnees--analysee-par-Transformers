@@ -12,7 +12,7 @@ labels = data['labels'].astype(int)
 # Il y a 50 000 images dans le jeu de données data
 # Chaque image a un numéro (example_indexes) et un label associé
 # Il y a 1 000 labels différents
-# Un élement de la table smx (une image) est une liste de 1 000 valeurs (softmax scores) obtenues à partir
+# Un élement de la table smx (une image) est une liste de 1 000 valeurs (softmax scores / proba) obtenues à partir
 # d'un prédicteur (supposément réseaux de neurones).
 
 print(list(data.keys()))

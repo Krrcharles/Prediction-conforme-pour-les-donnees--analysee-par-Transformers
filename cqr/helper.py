@@ -581,8 +581,8 @@ class QuantileForestRegressorAdapter(RegressorAdapter):
         ret_val : numpy array of estimated conditional quantiles (nX2)
 
         """
-        lower = self.rfqr.predict(x, quantile=self.cv_quantiles[0])
-        upper = self.rfqr.predict(x, quantile=self.cv_quantiles[1])
+        lower = self.rfqr.predict(x, quantiles=self.cv_quantiles[0]/100)
+        upper = self.rfqr.predict(x, quantiles=self.cv_quantiles[1]/100)
 
         ret_val = np.zeros((len(lower),2))
         ret_val[:,0] = lower

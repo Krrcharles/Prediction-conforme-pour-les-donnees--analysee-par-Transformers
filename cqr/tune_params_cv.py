@@ -60,8 +60,8 @@ def CV_quntiles_rf(params,
     rf.fit(X_train, y_train)
 
     for q in grid_q:
-        y_lower = rf.predict(X_test, quantile=q[0])
-        y_upper = rf.predict(X_test, quantile=q[1])
+        y_lower = rf.predict(X_test, quantiles=q[0]/100)
+        y_upper = rf.predict(X_test, quantiles=q[1]/100)
         coverage, avg_length = helper.compute_coverage_len(y_test, y_lower, y_upper)
         if (coverage >= target_coverage) and (avg_length < best_avg_length):
             best_avg_length = avg_length

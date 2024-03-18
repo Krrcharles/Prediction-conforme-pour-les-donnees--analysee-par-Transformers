@@ -60,7 +60,7 @@ def CV_quntiles_rf(params,
     rf.fit(X_train, y_train)
 
     for q in grid_q:
-        predictions = rf.predict(X_test, quantiles=q/100)
+        predictions = rf.predict(X_test, quantiles=q.tolist()/100)
         y_lower = predictions[:, 0]
         y_upper = predictions[:, 1]
         coverage, avg_length = helper.compute_coverage_len(y_test, y_lower, y_upper)

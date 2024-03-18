@@ -51,8 +51,6 @@ Néanmoins, comme il s'agit d'un problème de classification a seulement deux cl
 C'est pourquoi nous avons décidé de faire un virage vers un problème de régression. Pour notre forêt aléatoire appliqué à une variable continue, nous avons appliqué une méthode de type split conformal et CV + à K (=5) folder. La méthode CV+ repose sur un entraînement du régresseur sur des données d'entraînement divisé K fois et des calculs de score selon une formule définie. Nous avons également pensé à utiliser la méthode Jacknife + qui a également de bonnes propriétés de couverture. Mais de même, il était nécessaire d'entraîner n fois notre modèle où n est la taille de notre échantillon d'entraînement ce qui n'était pas raisonnable techniquement. 
 De plus, pour fournir un intervalle de prédiction, il parait au premier abord pertinent d'utiliser un régresseur de type quantile et de prédire les quantiles d'ordre alpha/2 et d'ordre 1-alpha/2. Toutefois, rien ne garantis que dans alpha % des cas la vrai valeur est contenu dans l'intervalle formé par les quantiles. C'est pourquoi il existe une méthode de type conformal quantile regression que nous avons appliqué qui repose sur une petite correction des intervalles.
 
-# régression quantile via réseaux de neurones possibles / Local conformal / Median regression au lieu du mean.
-
 4) Comparaisons / Résultats intéressants / Bilan
 
 - Discuter de la qualité de nos prédicteurs :
